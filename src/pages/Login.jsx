@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import BtnOne from "../components/BtnOne";
 import Field from "../components/Field";
+import { Link } from "react-router-dom";
+
 
 // import loginimg from "./imgs/loginimg.png";
 
@@ -44,9 +46,9 @@ function login({ loginimg, logo }) {
                 <BtnOne data={"Login"} />
                 <p className="mb-0 mt-3 text-secondary text-center">
                   Don't have an account{" "}
-                  <a href="" className="text-dark text-decoration-none">
+                  <Link to="/signup" className="text-dark text-decoration-none">
                     Register
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>

@@ -12,7 +12,7 @@ function signup({ loginimg, logo }) {
          <h2 className="fs-3">A few details</h2>
           <form action="" className="my-3">
             <div className="">
-            <Field
+             <Field
                 fieldfor={"email"}
                 type={"email"}
                 text={"Email"}

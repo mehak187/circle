@@ -39,17 +39,17 @@ const Header = () => (
   <section className="main vh-100">
     <div className="container">
       <div className="row vh-100 py-5">
-        <div className="col-4 d-flex flex-column my-5">
+        <div className="col-4 d-flex align-items-center  flex-column my-5">
           <img src={logo} className="w-100" alt="Example" />
           <div className="mt-auto">
             <Link
-              className="py-2 d-block text-decoration-none text-center bg-grey border-0 mt-3 fw-md text-black rounded-pill py-2 px-4 w-100 max-200"
+              className="py-2 d-block text-decoration-none text-center bg-grey border-0 mt-3 fw-md text-black rounded-pill py-2 px-5 w-100 max-200"
               to="/login"
             >
               Login
             </Link>
             <Link
-              className="py-2 d-block text-decoration-none text-center bg-grey border-0 mt-3 fw-md text-black rounded-pill py-2 px-4 w-100 max-200"
+              className="py-2 d-block text-decoration-none text-center bg-grey border-0 mt-3 fw-md text-black rounded-pill py-2 px-5 w-100 max-200"
               to="/signup"
             >
               Register
