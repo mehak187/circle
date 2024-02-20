@@ -6,11 +6,12 @@ function Signup({ loginimg, logo }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const intialstate={
-    email:'',
-    username:'',
-    password:'',
-    confirmPassword:'',
-    role:'1',
+    "email": "company882@yahoo.com",
+    "first_name": "Company 4",
+    "password": "123456789",
+    "role": "PLA",
+    "sign_up_code": "0000000000000000"
+
   }
   const [formdata, setformdata]=useState(intialstate)
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -69,8 +70,8 @@ console.log(formdata)
                     type={"text"}
                     text={"User Name"}
                     name="name"
-                    value={formdata.username}
-                    onChange={(e)=>handleOnchange('username',e.target.value)}
+                    value={formdata.first_name}
+                    onChange={(e)=>handleOnchange('first_name',e.target.value)}
                   />
                   <input
                     fieldfor={"password"}
@@ -90,7 +91,8 @@ console.log(formdata)
                   />
                   
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-                  <BtnOne data={"Register"} />
+                  <button type='submit' className='py-2 d-block text-decoration-none text-center bg-black border-0 mt-4 fw-md text-white rounded-3 py-2 px-4 w-100'>jjjjj</button>
+
                 </div>
               </form>
             </div>
