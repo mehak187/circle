@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import BtnOne from "../components/BtnOne";
 import Field from "../components/Field";
-
 function Signup({ loginimg, logo }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
