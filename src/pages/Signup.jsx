@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import BtnOne from "../components/BtnOne";
 import Field from "../components/Field";
+import { useLocation } from "react-router-dom";
 function Signup({ loginimg, logo }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+const navi= useLocation()
+
   const intialstate={
-    email:'',
-    username:'',
-    password:'',
-    confirmPassword:'',
-    role:'1',
+    "email": "",
+    "first_name": "",
+    "password": "",
+    "role": "PLA",
+    "sign_up_code": "0000000000000000"
+
   }
   const [formdata, setformdata]=useState(intialstate)
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,12 +32,13 @@ console.log(formdata,"email")
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formdata
+          ...formdata
         }),
       });
 
       if (response.ok) {
         console.log('Registration successful!');
+        navi("/login")
       } else {
         const data = await response.json();
         setErrorMessage(data.message);
@@ -69,8 +74,8 @@ console.log(formdata)
                     type={"text"}
                     text={"User Name"}
                     name="name"
-                    value={formdata.username}
-                    onChange={(e)=>handleOnchange('username',e.target.value)}
+                    value={formdata.first_name}
+                    onChange={(e)=>handleOnchange('first_name',e.target.value)}
                   />
                   <input
                     fieldfor={"password"}
@@ -90,7 +95,8 @@ console.log(formdata)
                   />
                   
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-                  <BtnOne data={"Register"} />
+                  <button type='submit' className='py-2 d-block text-decoration-none text-center bg-black border-0 mt-4 fw-md text-white rounded-3 py-2 px-4 w-100'>jjjjj</button>
+
                 </div>
               </form>
             </div>
