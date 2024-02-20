@@ -16,6 +16,8 @@ import Signup from "./pages/Signup";
 import logo from "./imgs/logo.png";
 import loginimg from "./imgs/loginimg.png";
 import Home from "./pages/Home";
+import Welcome from "./pages/Welcome";
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
           <Route path="/signup" element={<Signup loginimg={loginimg} logo={logo}/>} />
           <Route element={<Header/>}>
             <Route path="/" element={<Home loginimg={loginimg}/>} />
+            <Route path="/Welcome" element={<Welcome/>} />
             <Route path="/2nd-page" element={<p>hello</p>} />
           </Route>
         </Routes>
