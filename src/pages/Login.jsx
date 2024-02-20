@@ -35,7 +35,7 @@ console.log(formdata,"email")
 
       if (response.ok) {
         console.log('Registration successful!');
-        Navigate("/")
+        Navigate("/Welcome")
       } else {
         const data = await response.json();
         // setErrorMessage(data.message);
@@ -51,27 +51,34 @@ console.log(formdata,"email")
   return (
     <section className="">
       <div className="container">
-        <div className="row justify-content-around vh-100 py-5 align-items-center">
-          <div className="col-5 border border-1 py-4 px-4 rounded-4 d-flex flex-column justify-content-center h-100">
+        <div className="row justify-content-around vh-100 py-5 align-items-center mx-3">
+        <div className="col-md-6 col-lg-5 border border-1 py-4 px-2 px-sm-4 rounded-4 d-flex flex-column justify-content-center h-100">
            <div className="mx-3">
            <h2 className="fs-3">Welcome back!</h2>
             <form action="" onSubmit={handleSubmit} className="my-3">
-              <div className="">
+            <div className="my-3">
+              <label className='w-100'>Email</label>
                 <input
                   onChange={(e)=>handleOnchange('username',e.target.value)}
+                  className='w-100 border border-1 rounded-3 py-2 px-3 mt-1 border-dark' 
                   fieldfor={"name"}
-                  type={"text"}
+                  type={"email"}
                   text={"User Name"}
-                  name="name"
+                  name="name" required
                 />
+              </div>
+              <div className="my-3">
+              <label className='w-100'>Password</label>
                 <input
                    onChange={(e)=>handleOnchange('password',e.target.value)}
+                  className='w-100 border border-1 rounded-3 py-2 px-3 mt-1 border-dark' 
                   fieldfor={"password"}
                   type={"password"}
                   text={"Password"}
-                  name="password"
+                  name="password" required
                 />
-                <div className="d-flex justify-content-between align-items-center">
+              </div>
+                <div className="d-flex flex-wrap justify-content-between align-items-center">
                   <div className="d-flex align-items-center">
                     <input
                       type="checkbox"
@@ -92,11 +99,10 @@ console.log(formdata,"email")
                     Register
                   </Link>
                 </p>
-              </div>
             </form>
            </div>
           </div>
-          <div className="col-5">
+          <div className="col-6 col-lg-5 d-none d-md-block">
             <div className="d-flex flex-column">
               <img src={logo} className="w-100 h-100" alt="Example" />
               <img src={loginimg} className="w-100 h-100" alt="Example" />
