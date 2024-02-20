@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 function Signup({ loginimg, logo }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, seterror] = useState('');
 const navi= useNavigate()
 
   const intialstate={
@@ -14,6 +14,7 @@ const navi= useNavigate()
     "first_name": "",
     "password": "",
     "role": "PLA",
+    "confirmPassword":"",
     "sign_up_code": "0000000000000000"
 
   }
@@ -26,6 +27,12 @@ setformdata({...formdata, [key]:value})
   const handleSubmit = async (e) => {
     e.preventDefault();
 console.log(formdata,"email")
+if(formdata.confirmPassword!==formdata.password){
+  seterror("password and confirm-Password not match")
+return
+}
+
+
     try {
       const response = await fetch('http://mpruv.us-east-2.elasticbeanstalk.com/api/register/', {
         method: 'POST',
@@ -42,7 +49,7 @@ console.log(formdata,"email")
         navi("/login")
       } else {
         const data = await response.json();
-        setErrorMessage(data.message);
+        // setErrorMessage(data.message);
         console.error('Registration failed:', data);
         navi("/login")
       }
@@ -109,7 +116,8 @@ console.log(formdata)
                     onChange={(e)=>handleOnchange('confirmPassword',e.target.value)} required
                   />
                   </div>
-                  {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
+                  {error && <p style={{ color: 'red' }}>{error}</p>}
                   <button type='submit' className='py-2 d-block text-decoration-none text-center bg-black border-0 mt-4 fw-md text-white rounded-3 py-2 px-4 w-100'>Register</button>
               </form>
             </div>

@@ -15,7 +15,7 @@ const Navigate= useNavigate()
  
   }
   const [formdata, setformdata]=useState(intialstate)
-  const [error, seterror]=useState(intialstate)
+  const [error, seterror]=useState("")
 
 
   const handleOnchange=(key, value)=>{
@@ -42,7 +42,7 @@ console.log(formdata,"email")
         const data = await response.json();
         // setErrorMessage(data.message);
 
-        console.log(data?.non_field_errors );
+        // console.log(data?.non_field_errors );
 
         // console.log('Registration failed:',  [Object.keys(data)][0] );
 
@@ -86,6 +86,7 @@ seterror(data?.non_field_errors[0])
                   name="password" required
                 />
               </div>
+              <p className="text-danger">  {error}</p> 
                 <div className="d-flex flex-wrap justify-content-between align-items-center">
                   <div className="d-flex align-items-center">
                     <input
@@ -94,13 +95,14 @@ seterror(data?.non_field_errors[0])
                       id="remember"
                       className="me-2"
                     />
-                  
+                   
                     <label htmlFor="remember">Remember me</label>
                   </div>
                   <a href="#" className="text-secondary text-decoration-none">
                     Forgot Password?
                   </a>
                 </div>
+            
                 <BtnOne data={"Login"} />
                 <p className="mb-0 mt-3 text-secondary text-center">
                   Don't have an account{" "}
