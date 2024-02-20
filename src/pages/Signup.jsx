@@ -71,6 +71,7 @@ console.log(formdata)
                     value={formdata.email}
                     onChange={(e)=>handleOnchange('email',e.target.value)}
                   />
+                </div>
                   <input
                     fieldfor={"name"}
                     type={"text"}
@@ -99,7 +100,6 @@ console.log(formdata)
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                   <button type='submit' className='py-2 d-block text-decoration-none text-center bg-black border-0 mt-4 fw-md text-white rounded-3 py-2 px-4 w-100'>jjjjj</button>
 
-                </div>
               </form>
             </div>
           </div>
