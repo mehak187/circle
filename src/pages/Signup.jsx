@@ -65,7 +65,8 @@ console.log(formdata)
                 <label className='w-100'>Email</label>
                   <input
                     fieldfor={"email"}
-                    type={"email"} 
+                    className='w-100 border border-1 rounded-3 py-2 px-3 mt-1 border-dark' 
+                    type={"email"}
                     text={"Email"}
                     name="email"
                     value={formdata.email}
