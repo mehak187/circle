@@ -65,7 +65,7 @@ console.log(formdata)
                 <div className="">
                   <input
                     fieldfor={"email"}
-                    type={"email"}
+                    type={"email"} 
                     text={"Email"}
                     name="email"
                     value={formdata.email}

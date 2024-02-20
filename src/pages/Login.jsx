@@ -15,6 +15,8 @@ const Navigate= useNavigate()
  
   }
   const [formdata, setformdata]=useState(intialstate)
+  const [error, seterror]=useState(intialstate)
+
 
   const handleOnchange=(key, value)=>{
     setformdata({...formdata, [key]:value})
@@ -39,7 +41,13 @@ console.log(formdata,"email")
       } else {
         const data = await response.json();
         // setErrorMessage(data.message);
-        console.error('Registration failed:', data.message);
+
+        console.log(data?.non_field_errors );
+
+        // console.log('Registration failed:',  [Object.keys(data)][0] );
+
+seterror(data?.non_field_errors[0])
+
       }
     } catch (error) {
       console.error('Error:', error.message);
@@ -79,6 +87,7 @@ console.log(formdata,"email")
                       id="remember"
                       className="me-2"
                     />
+                  
                     <label htmlFor="remember">Remember me</label>
                   </div>
                   <a href="#" className="text-secondary text-decoration-none">
