@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import BtnOne from "../components/BtnOne";
 import Field from "../components/Field";
-import { useLocation } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+
 function Signup({ loginimg, logo }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-const navi= useLocation()
+const navi= useNavigate()
 
   const intialstate={
     "email": "",
@@ -42,12 +43,13 @@ console.log(formdata,"email")
       } else {
         const data = await response.json();
         setErrorMessage(data.message);
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', data);
+        navi("/login")
       }
     } catch (error) {
       console.error('Error:', error.message);
       // Handle network error, e.g., show error message to user
-      setErrorMessage('Network error. Please try again later.');
+      // setErrorMessage('Network error. Please try again later.');
     }
   };
 console.log(formdata)

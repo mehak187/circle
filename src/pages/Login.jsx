@@ -1,13 +1,13 @@
 // import React from 'react';
 import React, { useState } from "react";
 import BtnOne from "../components/BtnOne";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 // import loginimg from "./imgs/loginimg.png";
 
-const  login =({ loginimg, logo })=> {
-
+const  Login =({ loginimg, logo })=> {
+const Navigate= useNavigate()
   const intialstate={
   
     username:'',
@@ -35,6 +35,7 @@ console.log(formdata,"email")
 
       if (response.ok) {
         console.log('Registration successful!');
+        Navigate("/")
       } else {
         const data = await response.json();
         // setErrorMessage(data.message);
@@ -107,4 +108,4 @@ console.log(formdata,"email")
   );
 }
 
-export default login;
+export default Login;

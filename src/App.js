@@ -25,6 +25,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+        
           <Route path="/login" element={<Login loginimg={loginimg} logo={logo}/>} />
           <Route path="/signup" element={<Signup loginimg={loginimg} logo={logo}/>} />
           <Route element={<Header/>}>
